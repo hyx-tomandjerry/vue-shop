@@ -1,0 +1,22 @@
+root = true
+
+[*]
+charset = utf-8
+# 设置缩进风格（tab是硬缩进，space是软缩进—）
+indent_style = space
+# 定义缩进的宽度
+indent_size = 4
+# 设置换行符
+end_of_line = lf
+# 表示会去除换行行首的任意空白字符
+trim_trailing_whitespace = true
+# 表示使文件以一个空白行结尾
+insert_final_newline = true
+# 设置tab缩进的列数
+tab_width = 2
+
+[*.md]
+trim_trailing_whitespace = false
+
+[Makefile]
+indent_style = tab

@@ -1,0 +1,103 @@
+@import "normalize.css";
+:root{
+    --normal-text:#2A2A2A;
+    --high-text:#42B0ED;
+    --font-size:14px;
+    --bg-color:#F7F7F7;
+    --line-height:1.5;
+    --color-normal:#2A2A2A ;
+    --color-gray:#898888;
+}
+*,*::before,*::after{
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+}
+body{
+    background:var(--bg-color);
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-size:var(--font-size);
+    color:var(--normal-text);
+    user-select: none;
+    width:100vw;
+    font-weight:400;
+}
+/*字体大小*/
+.font-size-title{
+    font-size:30px;
+}
+.font-size-big{
+    font-size:16px;
+}
+/*背景颜色*/
+.bg-white{
+    background: #ffffff;
+}
+
+/*字体粗细*/
+.font-weight-bold{
+    font-weight: bold;
+}
+
+/*颜色*/
+.color-normal{
+    color:#2A2A2A;
+}
+.color-regular{
+    color:#898888;
+}
+.color-high{
+    color:#42B0ED
+}
+/*边框*/
+.border-b{
+    border-bottom:1px solid #EEEEEF;
+}
+/*flex布局*/
+.flex{
+    display: flex;
+}
+.justify-content-around{
+    justify-content: space-around;
+}
+.justify-content-between{
+    justify-content: space-between;
+}
+.justify-content-center{
+    justify-content: center;
+}
+.align-items-center{
+    align-items: center;
+}
+/*定位*/
+.position_r{
+    position:relative;
+}
+.position_a{
+    position:absolute;
+}
+input{
+    border:none;
+    font-size:16px;
+}
+.van-button--normal{
+    font-size:16px;
+    color: #ffffff;
+
+}
+.van-button--info{
+    background-color: #42B0ED !important;
+    border: 1px solid #42B0ED !important;
+    border-radius:5px  !important;
+}
+.van-nav-bar__arrow{
+    font-size:22px !important;
+}
+/*确认弹出框*/
+.van-dialog__header{
+    padding:12px 0 12px !important;
+    border-bottom:1px solid #F7F7F7;
+}
+.van-dialog__message--has-title{
+    padding-top:20px !important;
+}

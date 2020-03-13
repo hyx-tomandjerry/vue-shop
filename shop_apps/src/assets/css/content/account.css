@@ -1,0 +1,17 @@
+/*登录注册忘记密码相同样式*/
+/*获取验证码*/
+.code-btn{
+    height:28px;
+    line-height:28px;
+    padding:0 10px;
+}
+.van-button--disabled{
+    background:#E4E4E4;
+}
+input{
+    width:100%;
+}
+/*按钮*/
+.login-btn{
+    margin:32px 0 10px;
+}
