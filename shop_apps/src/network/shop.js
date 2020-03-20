@@ -1,5 +1,5 @@
 import {ajax} from "./request";
-import {Toast} from "vant/es/toast/Toast";
+import {Toast} from "vant";
 
 //获取公司全部门店
 export function shop_List(val){

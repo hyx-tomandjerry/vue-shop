@@ -26,7 +26,7 @@
                     class="login-btn" @click="loginHandle">登录</van-button>
                 <div class="flex justify-content-between token-area">
                     <div class="color-high" @click="forgetTokenHandle">忘记密码</div>
-                    <van-checkbox  v-model="remeber" shape="square" checked-color="#42B0ED" @change="remeberHandle($event)" >记住密码</van-checkbox>
+                    <van-checkbox  v-model="remeber" shape="square" checked-color="#42B0ED" @click="remeberHandle" >记住密码</van-checkbox>
                 </div>
             </section>
         </common-template>
@@ -59,19 +59,17 @@
         },
         mounted(){
             if(this.$utils.getLocalItem('remeber')){
+                this.remeber = this.$utils.getLocalItem('remeber');
                 this.account = this.$utils.getLocalItem('account');
                 this.token = this.$utils.getLocalItem('token');
             }
         },
 
         methods:{
-            remeberHandle(event){
-                if(event){
-                    //记住密码
-                    this.$utils.setLocalItem('remeber',event);
-                    this.$utils.setLocalItem('account',this.account);
-                    this.$utils.setLocalItem('token',this.token)
-                }
+            remeberHandle(){
+                this.$utils.setLocalItem('remeber',!this.remeber);
+                this.$utils.setLocalItem('account',this.account);
+                this.$utils.setLocalItem('token',this.token)
             },
             forgetTokenHandle(){
                 this.$router.replace({

@@ -11,7 +11,7 @@ let baseParam ={};
 let normalApi=['Login','Signup','InitPwd','RefreshOnlineUser','Errors'];
 export function ajax(api,param={}){
     return new Promise((resolve,reject)=>{
-        let result  = JSON.parse(localStorage.getItem('userInfo'))
+        let result  = JSON.parse(localStorage.getItem('userInfo'));
         if(!result || !result.session){
             baseParam={};
         }else{

@@ -1,5 +1,5 @@
 <template>
-    <van-sticky>
+    <van-sticky >
         <div class="index-head">
             <div class="index-head-img">
                 <img :src="companyInfo['ownerLogoUrl']" alt="" v-if="companyInfo['ownerLogoUrl']" class="index-head-img">
@@ -33,6 +33,7 @@
     display: flex;
     align-items: center;
     padding-bottom:13px;
+    background-color: #fff;
 }
     .index-head-img{
         width:38px;

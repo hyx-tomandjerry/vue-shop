@@ -1,6 +1,7 @@
 export default {
     type:4,//门店助手的type都是4
     page:20,
+    report:1,//是否回执
     genderZn:{
         1:'男',
         2:'女'
@@ -8,6 +9,27 @@ export default {
     gender:{
         'man':1,
         'women':2
+    },
+    //文章
+    article:{
+        sale:1,//销售公告
+        display:2,//陈列公告
+    },
+    articleZn:{
+        display:'陈列公告',//陈列公告
+        sale:'销售公告'//销售公告
+    },
+
+    //消息类型
+    noticeZn:{
+        1:'待办通知',
+        2:'动态通知',
+        3:'公司公告'
+    },
+    notice:{
+        todo:1,
+        info:2,
+        company:3
     },
     //用户状态
     userStatus:{

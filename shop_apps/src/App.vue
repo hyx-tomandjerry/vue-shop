@@ -2,7 +2,7 @@
   <div id="app">
     <router-view />
       <van-tabbar router border active-color="#42B0ED" inactive-color="#A2A2A2" v-show="$route.meta.isShow">
-          <van-tabbar-item v-for="(item,index) in tabbars" :key="index" :to="item.path">
+          <van-tabbar-item v-for="(item,index) in tabbars" :key="index" :to="item.path" :info="item.info">
               <span>{{item.name}}</span>
               <img :src="tabIndex === index?item.active:item.normal" alt="" slot="icon">
           </van-tabbar-item>
@@ -28,7 +28,8 @@ export default {
                   name:'消息',
                   path:'/notice',
                   normal:require("assets/images/tabbar/message.png"),
-                  active:require("assets/images/tabbar/message_color.png")
+                  active:require("assets/images/tabbar/message_color.png"),
+                  info:this.$utils.getLocalItem('notice')>0 ? this.$utils.getLocalItem('notice'):''
               },{
                   name:'工作',
                   path:'/work',
@@ -45,7 +46,10 @@ export default {
     },
   components: {
 
-  }
+  },
+    mounted() {
+      console.log('51',this.$utils.getLocalItem('notice'))
+    }
 }
 </script>
 
@@ -53,6 +57,8 @@ export default {
 @import "assets/css/base.css";
     #app{
         height:100vh;
-        background:#F7F7F7
+        width:100vw;
+        background:#F7F7F7;
+        padding-bottom:60px;
     }
 </style>

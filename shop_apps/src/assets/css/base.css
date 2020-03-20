@@ -49,6 +49,9 @@ body{
 .color-high{
     color:#42B0ED
 }
+.color-white{
+    color: #ffffff;
+}
 /*边框*/
 .border-b{
     border-bottom:1px solid #EEEEEF;
@@ -56,6 +59,9 @@ body{
 /*flex布局*/
 .flex{
     display: flex;
+}
+.flex-1{
+    flex:1;
 }
 .justify-content-around{
     justify-content: space-around;
@@ -75,6 +81,20 @@ body{
 }
 .position_a{
     position:absolute;
+}
+/*居中*/
+.text-center{
+    text-align: center;
+}
+.text-right{
+    text-align: right;
+}
+.text-left{
+    text-align: left;
+}
+/*margin*/
+.margin-b{
+    margin-bottom:13px;
 }
 input{
     border:none;
@@ -101,3 +121,8 @@ input{
 .van-dialog__message--has-title{
     padding-top:20px !important;
 }
+.van-image-preview__cover{
+    bottom:20% !important;
+    left:44% !important;
+}
+

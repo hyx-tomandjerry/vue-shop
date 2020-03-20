@@ -18,10 +18,13 @@ Vue.prototype.$utils = utils;
 import config from 'common/config'
 Vue.prototype.$config = config;
 
+
 //使用ztree
 import './common/js/jquery-1.4.4.min';
 import './plugins/zTree/js/jquery.ztree.core.min.js'
 import './plugins/zTree/js/jquery.ztree.excheck.min.js'
+//过滤器
+import './filter/index'
 new Vue({
   render: h => h(App),
     router

@@ -51,5 +51,9 @@ export default {
     //返回地址
     fullAdressIntro(item){
         return `${item['provinceName'] || ''}${item['districtName'] || ''}${item['cityName']||''}${item['address']||''}`
+    },
+    //数组图片过滤
+    filterImg(array){
+        return array.map(item=>item.url);
     }
 }

@@ -21,8 +21,8 @@ import {
     Popup,
     Dialog
 } from "vant";
-
-
+import {ImagePreview} from "vant";
+Vue.use(ImagePreview)
 Vue.use(Button);
 Vue.use(NavBar);
 Vue.use(Tabbar);

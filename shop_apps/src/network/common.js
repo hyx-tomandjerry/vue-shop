@@ -1,6 +1,6 @@
 import {ajax} from "./request";
 import config from '../common/config'
-
+import utils from '../common/js/utils'
 //获得xapis接口
 
 export function common_xapis(){
@@ -19,6 +19,24 @@ export function common_brand(owner){
 //刷新个人信息接口
 export function common_refresh(){
     return ajax('RefreshOnlineUser')
+}
+//获得文章接口
+export function common_MyArticles(type,page){
+    return ajax('MyArticles',{type,offset:utils.getOffset(page)})
+}
+//获得文章详情
+export function common_Article(id){
+    return ajax('Article',{id})
+}
+
+//获得消息个数接口
+export function common_MyEventNumbers(){
+    return ajax('MyEventNumbers')
+}
+
+//获得消息接口接口
+export function common_EventFlows(account,catalog,page){
+    return ajax('EventFlows',{...{contract:0,status:0,offset:utils.getOffset(page),owner:0},account,catalog})
 }
 
 

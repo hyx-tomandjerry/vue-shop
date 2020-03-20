@@ -5,25 +5,43 @@
         <div class="index-head-container">
             <index-head :companyInfo="companyInfo"/>
             <index-swiper />
+            <index-operate />
         </div>
 
-        <!--index头部end-->
+        <!--销售公告-->
+         <index-article-sale :sale="article.sale"/>
+        <!--陈列公共-->
+          <index-article-display :display="article.display"/>
+
     </div>
 </template>
 
 <script>
     import IndexHead from './children/index-head';
     import IndexSwiper from './children/index-swiper'
+    import IndexOperate from './children/index-operate'
+    import IndexArticleSale from './children/index-article-sale'
+    import IndexArticleDisplay from './children/index-article-display'
+    import EmptyComponent from 'components/content/emptyComponent/EmptyComponent'
 
-    import {common_refresh,common_xapis} from 'network/common.js'
+
+    import {common_refresh,common_xapis,common_MyArticles,common_MyEventNumbers} from 'network/common.js'
     export default {
         name: "Index",
         components:{
             IndexHead,
-            IndexSwiper},
+            IndexSwiper,
+            IndexOperate,
+            EmptyComponent,
+            IndexArticleDisplay,
+            IndexArticleSale},
         data(){
             return{
-                companyInfo:{}
+                companyInfo:{},
+                article:{
+                    sale:[],//销售公告
+                    display:[],//陈列公告
+                }
             }
         },
         methods:{
@@ -39,6 +57,21 @@
                         name:res.data['ownerName'],
                         cover:res.data['ownerLogoUrl']
                     }
+                    this.getArticleList();
+                    this.getNoticeNumber()
+                })
+            },
+        //    获得文章列表
+            getArticleList(){
+                common_MyArticles(0,1).then(res=>{
+                    this.article.display = res.data.filter(item=>item.type===this.$config.article.display);
+                    this.article.sale = res.data.filter(item=>item.type===this.$config.article.sale);
+                })
+            },
+            //获得消息数据
+            getNoticeNumber(){
+                common_MyEventNumbers().then(res=>{
+                    this.$utils.setLocalItem('notice',res.data)
                 })
             }
         },
@@ -52,16 +85,25 @@
                })
            }
 
+        },
+        mounted() {
+
         }
     }
 </script>
 
 <style scoped>
 .index-head-container{
-    padding:0 15px;
+    padding:0 15px 16px;
+    border-bottom:13px solid #eeeeed;
 }
     .index{
         height:100vh;
         background: #ffffff;
     }
+
+
+
+
+
 </style>
