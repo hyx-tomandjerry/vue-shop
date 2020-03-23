@@ -48,7 +48,7 @@ export default {
 
   },
     mounted() {
-      console.log('51',this.$utils.getLocalItem('notice'))
+
     }
 }
 </script>
@@ -61,4 +61,5 @@ export default {
         background:#F7F7F7;
         padding-bottom:60px;
     }
+
 </style>

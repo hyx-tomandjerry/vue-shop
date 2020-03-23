@@ -2,16 +2,19 @@
    <div class="profile-container">
        <van-nav-bar title="我的" :border="false"/>
        <profile-head :userInfo="$utils.getLocalItem('userInfo')"/>
+       <!--操作-->
+       <profile-operate />
    </div>
 </template>
 
 <script>
     import ProfileHead from './childComponent/ProfileHead'
+    import ProfileOperate from './childComponent/ProfileOperate'
     import {common_EventFlows,common_MyEventNumbers,common_refresh,common_xapis} from 'network/common.js'
 
     export default {
         name: "Profile",
-        components:{ProfileHead},
+        components:{ProfileHead,ProfileOperate},
         methods:{
             refreshInfo(){
                 common_refresh().then(res=>{

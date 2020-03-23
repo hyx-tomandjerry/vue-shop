@@ -38,5 +38,14 @@ export function common_MyEventNumbers(){
 export function common_EventFlows(account,catalog,page){
     return ajax('EventFlows',{...{contract:0,status:0,offset:utils.getOffset(page),owner:0},account,catalog})
 }
+//上传文件获得token
+export function common_token(){
+    return ajax('UploadToken')
+}
+
+//从公司或者门店删除店员
+export function common_delete(val){
+   return ajax('RemoveSalesman')
+}
 
 

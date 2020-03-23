@@ -25,7 +25,7 @@
     import EmptyComponent from 'components/content/emptyComponent/EmptyComponent'
 
 
-    import {common_refresh,common_xapis,common_MyArticles,common_MyEventNumbers} from 'network/common.js'
+    import {common_refresh,common_xapis,common_MyArticles,common_MyEventNumbers,common_token} from 'network/common.js'
     export default {
         name: "Index",
         components:{
@@ -58,7 +58,9 @@
                         cover:res.data['ownerLogoUrl']
                     }
                     this.getArticleList();
-                    this.getNoticeNumber()
+                    this.getNoticeNumber();
+                    this.getUploadToken()
+
                 })
             },
         //    获得文章列表
@@ -66,6 +68,12 @@
                 common_MyArticles(0,1).then(res=>{
                     this.article.display = res.data.filter(item=>item.type===this.$config.article.display);
                     this.article.sale = res.data.filter(item=>item.type===this.$config.article.sale);
+                })
+            },
+            //获得token
+            getUploadToken(){
+                common_token().then(res=>{
+                    this.$utils.setLocalItem('token',res.data)
                 })
             },
             //获得消息数据

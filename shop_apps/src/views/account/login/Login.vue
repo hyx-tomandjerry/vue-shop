@@ -36,7 +36,7 @@
 
 <script>
     import CommonTemplate from 'components/content/account/CommonTemplate'
-    import FormInput from '../../../components/content/account/FormInput'
+    import FormInput from 'components/content/account/FormInput'
 
     import {common_xapis} from 'network/common.js';
     import {account_login} from 'network/account.js'
@@ -61,7 +61,7 @@
             if(this.$utils.getLocalItem('remeber')){
                 this.remeber = this.$utils.getLocalItem('remeber');
                 this.account = this.$utils.getLocalItem('account');
-                this.token = this.$utils.getLocalItem('token');
+                this.token = this.$utils.getLocalItem('pwd');
             }
         },
 
@@ -69,7 +69,7 @@
             remeberHandle(){
                 this.$utils.setLocalItem('remeber',!this.remeber);
                 this.$utils.setLocalItem('account',this.account);
-                this.$utils.setLocalItem('token',this.token)
+                this.$utils.setLocalItem('pwd',this.token)
             },
             forgetTokenHandle(){
                 this.$router.replace({

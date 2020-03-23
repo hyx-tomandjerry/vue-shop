@@ -17,7 +17,9 @@ export default {
         let result  = localStorage.getItem(val);
         return JSON.parse(result)
     },
-
+    removeStorage(val){
+        localStorage.removeItem(val)
+    },
     //判断手机号是否正确
     phoneIsCorrect(val){
         let reg=/^[1][3,4,5,7,8][0-9]{9}$/;
@@ -55,5 +57,19 @@ export default {
     //数组图片过滤
     filterImg(array){
         return array.map(item=>item.url);
+    },
+    //图片转成base64
+    binarySystem (baseurl) {
+        let arr = baseurl.split(',');
+        baseurl = arr[0].match(/:(.*?);/)[1];
+        let bstr = atob(arr[1]);
+        let n = bstr.length;
+        let u8arr = new Uint8Array(n);
+        let nameImg = [];
+        while (n--) {
+            u8arr[n] = bstr.charCodeAt(n)
+            nameImg.push(bstr.charCodeAt(n))
+        }
+        return nameImg
     }
 }
