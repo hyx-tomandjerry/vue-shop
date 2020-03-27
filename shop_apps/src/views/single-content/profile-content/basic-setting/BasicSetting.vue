@@ -17,7 +17,7 @@
             <van-cell title="性别" :value="userInfo.gender===0?'男':'女'" isLink  @click="isShowGender=true"/>
             <van-cell title="身份证号"  isLink>
                 <div slot="default">
-                    <p v-if="userInfo.idnum">{{userInfo.idnum | idCardFilter}}</p>
+                    <p v-if="userInfo.idnum" @click="changeIdnumHandle">{{userInfo.idnum | idCardFilter}}</p>
                     <input type="number" placeholder="请输入身份证号" v-model="idcard" v-else class="text-right">
                 </div>
             </van-cell>
@@ -76,6 +76,9 @@
             }
         },
         methods:{
+            changeIdnumHandle(){
+                this.$router.push('/profile/idnum')
+            },
             confimBir(event){
                 if(event){
                     this.birth= this.$moment(event).format('YYYY-MM-DD');
@@ -114,19 +117,16 @@
                     gender:this.userInfo.gender,
                     mobile:this.userInfo.mobile,
                     name:this.userInfo.name,
-                    birthday:this.birth?this.birth:this.$mount(this.userInfo.birthday).format('YYYY-MM-DD'),
+                    birthday:this.birth?this.birth:this.$moment(this.userInfo.birthday).format('YYYY-MM-DD'),
                     idnum:this.idcard?this.idcard:this.userInfo.idnum
                 }
                 profile_edit(options);
+                this.refreshHandle()
             },
             refreshHandle(){
                 common_refresh().then(res=>{
                     this.userInfo=res.data;
                 })
-            },
-            birthdayHandle(date){
-                this.birth=this.$moment(date).format('YYYY-MM-DD');
-                this.isShowBir=false;
             },
             genderHandle(picker,value,index){
                 this.userInfo.gender=index;

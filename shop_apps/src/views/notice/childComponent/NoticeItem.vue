@@ -46,6 +46,6 @@
         color: #898888;
     }
     .notice-item-content p:first-child{
-        margin-bottom:8px;
+        /*margin-bottom:8px;*/
     }
 </style>

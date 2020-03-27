@@ -4,9 +4,9 @@
         <div class="edit-container">
             <div class="edit-head">当前登录账号 : <strong class="color-high">{{getMobile}}</strong></div>
             <div class="edit-form-content">
-                <van-field v-model="pwd" type="password" label="原始密码" required placeholder="请输入原始密码"class="border-b"/>
-                <van-field v-model="newPwd" type="password" label="新密码"required  placeholder="请输入新密码"  class="border-b"/>
-                <van-field v-model="confirmPwd" type="password" label="确认密码"required  placeholder="请输入确认密码" class="border-b"/>
+                <van-field v-model="pwd" type="text" label="原始密码" required placeholder="请输入原始密码"class="border-b"/>
+                <van-field v-model="newPwd" type="text" label="新密码"required  placeholder="请输入新密码"  class="border-b"/>
+                <van-field v-model="confirmPwd" type="text" label="确认密码"required  placeholder="请输入确认密码" class="border-b"/>
                 <div class="edit-intro">密码必须是6-20位的数字、英文组合</div>
                 <div class="edit-intro color-high">忘记密码</div>
             </div>
@@ -52,6 +52,7 @@
                 }
             },
             check(){
+                console.log(this.$utils.getLocalItem('pwd'))
                 if(!this.pwd){this.$toast({message:'请输入原始密码!'}); return false;}
                 if(!this.newPwd){this.$toast({message:'请输入新密码!'}); return false;}
                 if(!this.confirmPwd){this.$toast({message:'请输入确认密码!'}); return false;}

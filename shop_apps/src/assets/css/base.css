@@ -2,8 +2,9 @@
 :root{
     --normal-text:#2A2A2A;
     --high-text:#42B0ED;
-    --font-size:14px;
+    --font-size:15px;
     --bg-color:#F7F7F7;
+    --bg-white:#ffffff;
     --line-height:1.5;
     --color-normal:#2A2A2A ;
     --color-gray:#898888;
@@ -14,10 +15,10 @@
     margin:0;
 }
 body{
-    background:var(--bg-color);
+    background:#f7f7f7;
     font-family:PingFangSC-Regular,PingFang SC;
-    font-size:var(--font-size);
-    color:var(--normal-text);
+    font-size:15px;
+    color:#2A2A2A;
     user-select: none;
     width:100vw;
     font-weight:400;
@@ -36,6 +37,9 @@ body{
 }
 .font-size-big{
     font-size:16px;
+}
+.font-size-middle{
+    font-size:15px;
 }
 /*背景颜色*/
 .bg-white{
@@ -72,6 +76,9 @@ body{
 /*边框*/
 .border-b{
     border-bottom:1px solid #EEEEEF;
+}
+.border-r{
+    border-right:1px solid #EEEEEF;
 }
 /*flex布局*/
 .flex{
@@ -150,4 +157,12 @@ input{
     min-height:24px !important;
     line-height: 24px;
 }
-
+.divider-line{
+    padding-top: 10px;
+}
+.van-grid-item__content{
+    padding:0 !important;
+}
+.van-nav-bar .van-icon{
+    color:#2a2a2a !important;
+}

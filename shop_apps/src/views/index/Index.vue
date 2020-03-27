@@ -24,8 +24,9 @@
     import IndexArticleDisplay from './children/index-article-display'
     import EmptyComponent from 'components/content/emptyComponent/EmptyComponent'
 
+    import {mapState,mapMutations} from 'vuex'
 
-    import {common_refresh,common_xapis,common_MyArticles,common_MyEventNumbers,common_token} from 'network/common.js'
+    import {common_refresh,common_xapis,common_MyArticles,common_MyEventNumbers,common_token,common_MyShops} from 'network/common.js'
     export default {
         name: "Index",
         components:{
@@ -44,9 +45,12 @@
                 }
             }
         },
+        computed:mapState(['shopItem','shopCount']),
         methods:{
+            ...mapMutations(['setShopItem','setShopCount','setUserInfo']),
             refreshInfo(){
                 common_refresh().then(res=>{
+                   this.setUserInfo(res.data);
                    this.$utils.setLocalItem('userInfo',res.data);//保存个人信息
                 //    获得api接口并保存
                     common_xapis().then(res=>{
@@ -59,8 +63,19 @@
                     }
                     this.getArticleList();
                     this.getNoticeNumber();
-                    this.getUploadToken()
+                    this.getUploadToken();
+                    this.getShopNumber();
+                    this.getShopNumber()
 
+                })
+            },
+        //    获得门店数量
+            getShopNumber(){
+                common_MyShops().then(res=>{
+                   if(res.data && res.data.length===1){
+                      this.setShopItem(res.data[0]);
+                      this.setShopCount(res.data.length);
+                   }
                 })
             },
         //    获得文章列表

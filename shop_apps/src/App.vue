@@ -1,8 +1,11 @@
 <template>
   <div id="app">
-    <router-view />
-      <van-tabbar router border active-color="#42B0ED" inactive-color="#A2A2A2" v-show="$route.meta.isShow">
-          <van-tabbar-item v-for="(item,index) in tabbars" :key="index" :to="item.path" :info="item.info">
+      <keep-alive>
+          <router-view v-if="$route.meta.KeepAlive"/>
+      </keep-alive>
+      <router-view v-if="!$route.meta.KeepAlive"/>
+      <van-tabbar router border active-color="#42B0ED" inactive-color="#A2A2A2" v-show="$route.meta.isShow" v-model="tabIndex">
+          <van-tabbar-item v-for="(item,index) in tabbars" :key="index" :to="item.path" :info="item.info" @click="tabChooseHandle(index)">
               <span>{{item.name}}</span>
               <img :src="tabIndex === index?item.active:item.normal" alt="" slot="icon">
           </van-tabbar-item>
@@ -43,6 +46,11 @@ export default {
               }
           ]
       }
+    },
+    methods:{
+        tabChooseHandle(index){
+            this.tabIndex=index;
+        }
     },
   components: {
 

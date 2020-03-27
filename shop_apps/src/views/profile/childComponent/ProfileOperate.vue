@@ -13,8 +13,8 @@
         <van-cell title="退出公司"  isLink @click="operate('quitCompany')">
             <img src="~assets/images/profile/quit_company.png" slot="icon" class="tag-img" size="large"/>
         </van-cell>
-        <div class="margin-gap"></div>
-        <van-cell title="软件协议"  isLink>
+        <div class="margin-gap" ></div>
+        <van-cell title="软件协议" isLink to="/profile/protocol">
             <img src="~assets/images/profile/mine_protocol.png" slot="icon" class="tag-img" size="large"/>
         </van-cell>
         <van-cell title="退出登录"  isLink isLink @click="operate('quit')">

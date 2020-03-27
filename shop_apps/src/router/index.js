@@ -16,6 +16,8 @@ const routes=[
   {path:'/work',component:Work,meta:{isShow:true}},
   {path:'/notice',component:Notice,meta:{isShow:true}},
   {path:'/profile', component:Profile,meta:{isShow:true},},
+  //  审批流程
+  {path:'/approve/:type', component:()=>import('views/approve/Approve')},
   //  账号
   {path:'/login',component:Login},
   {path:'/sign',component:Sign},
@@ -34,7 +36,22 @@ const routes=[
     {path:'/profile/edit',component:()=>import('views/single-content/profile-content/edit-password/EditPassword')},//修改密码
     {path:'/profile/company',component:()=>import('views/single-content/profile-content/company-info/CompanyInfo')},//公司详情
     {path:'/profile/change',component:()=>import('views/single-content/profile-content/change-telephone/ChangeTelephone')},//更换手机号
-// import '../views/single-content/profile-content/change-telephone/ChangeTelephone'
+    {path:'/profile/protocol',component:()=>import('views/single-content/profile-content/protocol-content/ProtocolContent')},//软件协议
+    {path:'/profile/idnum',component:()=>import('views/single-content/profile-content/change-idnum/ChangeIdnum')},//更换身份证
+
+    //报修
+    {path:'/shop/repair',component:()=>import ('views/single-content/shop-center/repair-content/repair-list/RepairList')},//门店保修列表
+    {path:'/shop/create',
+        meta:{KeepAlive:true},
+        component:()=>import ('views/single-content/shop-center/repair-content/create-repair/CreateRepair')},//新建报修
+    {path:'/shop/repair/catalog',component:()=>import ('views/single-content/shop-center/repair-content/repair-catalog/RepairCatalog')},//维修类别
+    {path:'/shop/repair/detail/:id',component:()=>import ('views/single-content/shop-center/repair-content/reapir-order-item/RepairOrderItem')},//报修详情
+
+    //门店
+    {path:'/index/shop',component:()=>import('views/single-content/shop-center/shop-container/shop-info/ShopInfo')},//我的门店
+    {path:'/shop/edit',component:()=>import('views/single-content/shop-center/shop-container/shop-operate/ShopOperate')},//编辑操作
+    {path:'/shop/clerk',component:()=>import('views/single-content/shop-center/shop-container/clerk-info/ClerkInfo')},//店员详情
+    // import '../views/single-content/shop-center/shop-container/clerk-info/ClerkInfo'
 ];
 
 const router = new VueRouter({

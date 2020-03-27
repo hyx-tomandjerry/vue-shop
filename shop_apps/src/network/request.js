@@ -32,7 +32,7 @@ export function ajax(api,param={}){
             method:'POST',
             url:url,
             headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
+                "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
             },
             data:qs.stringify({...option,...{f:api}})
         }).then(res=>{
@@ -50,14 +50,15 @@ export function ajax(api,param={}){
                     }
                     resolve(res.data)
                 }
-
-
             }else{
                 errorMsgFun(res.data.code)
             }
 
 
         }).catch(err=>{
+            Toast({
+                message:'访问超时!'
+            })
             reject(err);
         })
     })

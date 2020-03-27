@@ -1,4 +1,5 @@
 import {ajax} from "./request";
+import {Toast} from "vant";
 import config from '../common/config'
 import utils from '../common/js/utils'
 //获得xapis接口
@@ -46,6 +47,28 @@ export function common_token(){
 //从公司或者门店删除店员
 export function common_delete(val){
    return ajax('RemoveSalesman')
+}
+//获得门店数量
+export function common_MyShops(){
+    return ajax('MyShops',{address:''})
+}
+//获得维修类别
+export function common_catalog(){
+    return ajax('ServiceCatalogs')
+}
+
+//删除图片
+export function common_removeFile(files){
+    ajax('RemoveFiles',{files}).then(res=>{
+        if(res.code===0){
+            Toast({message:'图片删除成功!'})
+        }
+    })
+}
+
+//获得所有流程模板
+export function common_approve(type){
+    return ajax('Workflows',{type})
 }
 
 

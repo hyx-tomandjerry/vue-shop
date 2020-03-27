@@ -24,7 +24,6 @@
         },
         methods:{
             downLoadHandle(){
-                console.log(this.image[this.index])
                 let image =new Image();
                 image.setAttribute('crossOrigin','anonymous');
                 let _this=this;

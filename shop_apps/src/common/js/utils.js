@@ -23,20 +23,17 @@ export default {
     //判断手机号是否正确
     phoneIsCorrect(val){
         let reg=/^[1][3,4,5,7,8][0-9]{9}$/;
-        if(!reg.test(val)){
-            return false;
-        }else{
-            return true
-        }
+        return reg.test(val);
     },
     //判断密码是否正确
     tokenIsCorrect(val){
         let reg =/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,18}$/;
-        if(!reg.test(val)){
-            return false;
-        }else{
-            return true;
-        }
+        return reg.test(val);
+    },
+    //判断身份证号是否正确
+    idnumIsCorrect(val){
+        let reg= /^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$|^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/;
+        return reg.test(val)
     },
     //返回上一页
     goBack(){
@@ -71,5 +68,10 @@ export default {
             nameImg.push(bstr.charCodeAt(n))
         }
         return nameImg
-    }
+    },
+
+    //计算某一时间到现在的天数
+
+
+
 }

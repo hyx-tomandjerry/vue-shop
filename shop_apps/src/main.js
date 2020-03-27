@@ -26,9 +26,22 @@ Vue.prototype.$moment = moment;
 import './common/js/jquery-1.4.4.min';
 import './plugins/zTree/js/jquery.ztree.core.min.js'
 import './plugins/zTree/js/jquery.ztree.excheck.min.js'
+
+//引入store
+import store from './store/index'
+
+//eventBus
+let EventBus = new Vue();
+Object.defineProperties(Vue.prototype,{
+    $bus:{get:()=> EventBus}
+});
+
+
+
 //过滤器
 import './filter/index'
 new Vue({
   render: h => h(App),
-    router
+    router,
+    store,
 }).$mount('#app');

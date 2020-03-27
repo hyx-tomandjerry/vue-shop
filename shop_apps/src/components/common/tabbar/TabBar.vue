@@ -23,7 +23,8 @@
         methods:{
             tabCurHandle(){
                 this.$emit('tabCurHandle',Number(this.tabCur+1))
-            }
+            },
+
         }
     }
 </script>

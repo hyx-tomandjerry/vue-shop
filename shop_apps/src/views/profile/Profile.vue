@@ -34,6 +34,9 @@
         },
         created() {
             this.refreshInfo()
+        },
+        mounted() {
+            this.refreshInfo()
         }
     }
 </script>

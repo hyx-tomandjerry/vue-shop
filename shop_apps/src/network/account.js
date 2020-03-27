@@ -8,10 +8,14 @@ export function account_login(user,token){
     return  ajax('Login', {user, token})
 }
 //注册
-export function account_sign(val){
+export function account_sign(val,type){
    ajax('Signup',val).then(res=>{
        if(res.code===0){
-           Toast({message:'用户注册成功!'});
+          if(type ==='join'){
+              Toast({message:'店员录入成功!'});
+          }else{
+              Toast({message:'用户注册成功!'});
+          }
        }
    })
 }

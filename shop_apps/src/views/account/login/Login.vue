@@ -133,6 +133,7 @@
                                 return;
                             }
                             this.$utils.setLocalItem('userInfo',res.data);
+                            this.$utils.setLocalItem('pwd',this.token);
                             //获得xapis
                             common_xapis().then(apis=>{
                                 this.$utils.setLocalItem('api',apis.data)
@@ -153,7 +154,7 @@
 
                         }
                     });
-
+                    this.disabled =false;
                 }
             }
         }
