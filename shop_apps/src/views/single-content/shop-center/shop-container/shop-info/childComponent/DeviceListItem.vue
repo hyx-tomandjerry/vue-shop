@@ -1,5 +1,6 @@
 <template>
-    <van-row class="list-item bg-white" type="flex" align="center">
+
+    <van-row class="list-item bg-white" type="flex" align="center" @click="checkDevice">
         <van-col span="2" offset="2" class="text-center">
             <img src="~assets/images/shop/device/camera.png"
                        width="45"
@@ -27,8 +28,27 @@
                 type:Object,
                 default(){return {}}
             },
+            shopInfo:{
+                type:Object,
+                default(){return {}}
+            },
             index:[String,Number]
         },
+        methods:{
+            checkDevice(){
+                switch (this.item['ownerName']) {
+                    case 'camera':
+                        this.$router.push({
+                            path:"/shop/device/camera/"+this.item.seq+"/"+this.shopInfo.id
+                        })
+                        break;
+                    case 'router':
+
+                        break;
+                }
+
+            }
+        }
 
     }
 </script>

@@ -95,3 +95,69 @@ export function edit_shop_seq(id,seq){
         }
     })
 }
+//设为店长
+export function shop_setManager(shop,user){
+    ajax('SetShopManager',{shop,user}).then(res=>{
+        if(res.code===0){
+            Toast({message:'设置成功!'});
+            setTimeout(()=>{
+                utils.goBack()
+            },2000)
+        }
+    })
+}
+
+//同意店员加入
+export function shop_agree_refuse(shop,user,reject){
+    ajax('AcceptSalesman',{shop,user,reject}).then(res=>{
+        if(res.code===0){
+            Toast({message:'操作成功!'});
+            setTimeout(()=>{
+                utils.goBack()
+            },2000)
+        }
+    })
+}
+//查看摄像头信息
+export function shop_device_camera_info(uuid){
+    return ajax('Camera',{uuid});
+}
+//查看路由器信息
+export function shop_device_router_info(seq){
+    return ajax('Router',{seq})
+}
+//绑定摄像头
+export function shop_bind_camera(shop,uuid){
+    ajax('BindCamera',{shop,uuid}).then(res=>{
+        if(res.code===0){
+            Toast({message:'绑定摄像头成功!'});
+            setTimeout(()=>{
+                utils.goBack()
+            },2000)
+        }
+    })
+}
+
+//绑定cpe
+export function shop_bind_cpe(seq,shop){
+    ajax('ActivateRouter',{shop,seq}).then(res=>{
+        if(res.code===0){
+            Toast({message:'激活cpe成功!'});
+            setTimeout(()=>{
+                utils.goBack()
+            },2000)
+        }
+    })
+}
+
+//解绑摄像头
+export function shop_unbind_camera(id){
+    ajax('UnbindCamera',{id,status:1}).then(res=>{
+        if(res.code ===0){
+            Toast({message:'摄像头解绑成功!'});
+            setTimeout(()=>{
+                utils.goBack()
+            },2000)
+        }
+    })
+}

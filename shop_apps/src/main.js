@@ -30,6 +30,13 @@ import './plugins/zTree/js/jquery.ztree.excheck.min.js'
 //引入store
 import store from './store/index'
 
+//ie摆平问提
+import '@babel/polyfill'
+import Es6Promise from 'es6-promise'
+Es6Promise.polyfill()
+
+
+
 //eventBus
 let EventBus = new Vue();
 Object.defineProperties(Vue.prototype,{

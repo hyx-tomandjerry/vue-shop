@@ -3,8 +3,8 @@
         <van-col span="4" offset="2" class="text-center">
             <van-image :src="getCover" width="45" height="45"  round/>
         </van-col>
-        <van-col span="12" offset="1">{{item.name}}/{{item.account}}</van-col>
-        <van-col span="4">
+        <van-col span="11" offset="1">{{item.name}}/{{item.account}}</van-col>
+        <van-col span="5">
             <div v-if="shopInfo['manager'] === item.id && item.status === $config.userStatus.normal">
                 <van-tag
                     type="primary"
@@ -47,7 +47,7 @@
             checkItemInfo(){
                 this.$router.push({
                     path:'/shop/clerk',
-                    query:{clerkID:this.item.id,shopID:this.shopInfo.id}
+                    query:{clerkID:this.item.id,shopID:this.shopInfo.id,tabIndex:1}
                 })
             }
         }

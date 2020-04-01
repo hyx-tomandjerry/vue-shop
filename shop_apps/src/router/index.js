@@ -48,14 +48,19 @@ const routes=[
     {path:'/shop/repair/detail/:id',component:()=>import ('views/single-content/shop-center/repair-content/reapir-order-item/RepairOrderItem')},//报修详情
 
     //门店
-    {path:'/index/shop',component:()=>import('views/single-content/shop-center/shop-container/shop-info/ShopInfo')},//我的门店
+    {path:'/shop',component:()=>import('views/single-content/shop-center/shop-container/shop-info/ShopInfo')
+    },//我的门店
     {path:'/shop/edit',component:()=>import('views/single-content/shop-center/shop-container/shop-operate/ShopOperate')},//编辑操作
     {path:'/shop/clerk',component:()=>import('views/single-content/shop-center/shop-container/clerk-info/ClerkInfo')},//店员详情
-    // import '../views/single-content/shop-center/shop-container/clerk-info/ClerkInfo'
+
+    //设备
+    {path:'/shop/device/bind/:shop/:type',component:()=>import('views/single-content/shop-center/shop-container/device-center/bind-device/BindDevice')},//绑定设备
+    {path:'/shop/device/camera/:seq/:shop',component:()=>import('views/single-content/shop-center/shop-container/device-center/camera-info/CameraInfo')},//摄像头信息
+    // import '../views/single-content/shop-center/shop-container/device-center/camera-info/CameraInfo'
 ];
 
 const router = new VueRouter({
   routes,
-  mode:'history'
+    mode:'history'
 });
 export default router

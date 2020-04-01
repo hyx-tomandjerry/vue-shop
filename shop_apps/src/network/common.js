@@ -45,8 +45,14 @@ export function common_token(){
 }
 
 //从公司或者门店删除店员
-export function common_delete(val){
-   return ajax('RemoveSalesman')
+export function common_delete(shop,users,permanent){
+    console.log(shop);
+    ajax('RemoveSalesman',{shop,users,permanent}).then(res=>{
+        console.log(res)
+        if(res.code===0){
+            Toast({message:'操作成功!'})
+        }
+    })
 }
 //获得门店数量
 export function common_MyShops(){

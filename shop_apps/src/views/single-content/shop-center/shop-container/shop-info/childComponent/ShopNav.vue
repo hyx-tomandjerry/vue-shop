@@ -12,6 +12,7 @@
             v-for="(item,index) in list"
             :key="index"
             :item="item"
+            :shop-info="shopInfo"
             :index="index"
             v-if="tabCur === 2" slot="content"/>
         <device-list-item
@@ -19,6 +20,7 @@
             :key="index"
             :item="item"
             :index="index"
+            :shop-info="shopInfo"
             slot="content"
             v-if="tabCur === 3"/>
     </tab-bar>

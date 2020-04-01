@@ -52,7 +52,7 @@
 }
     .clerk-img{
         width:100px;
-        height:110px;
+        height:100px;
         -webkit-border-radius: 100%;
         -moz-border-radius: 100%;
         border-radius: 100%;

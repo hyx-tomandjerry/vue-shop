@@ -1,5 +1,5 @@
 <template>
-    <van-row class="list-item bg-white" type="flex" align="center">
+    <van-row class="list-item bg-white" type="flex" align="center" @click="checkZoneMember">
         <van-col span="4" offset="2" class="text-center">
             <van-image :src="getCover" width="45" height="45"  round/>
         </van-col>
@@ -21,11 +21,23 @@
                 type:Object,
                 default(){return {}}
             },
-            index:[String,Number]
+            index:[String,Number],
+            shopInfo:{
+                type:Object,
+                default(){return {}}
+            },
         },
         computed:{
             getCover(){
                 return this.item.headurl?this.item.headurl:require('assets/images/common/avatar.jpg')
+            }
+        },
+        methods:{
+            checkZoneMember(){
+                this.$router.push({
+                    path:'/shop/clerk',
+                    query:{clerkID:this.item.id,shopID:this.shopInfo.id,tabIndex:2,zone:this.shopInfo.zone}
+                })
             }
         }
     }

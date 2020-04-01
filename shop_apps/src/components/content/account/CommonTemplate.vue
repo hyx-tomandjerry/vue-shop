@@ -1,6 +1,5 @@
 <template>
    <div class="common-template position_r bg-white">
-       <van-nav-bar/>
        <div class="accoount-container">
             <div class="account-title"><slot name="name">{{name}}</slot></div>
            <div class="title-intro">

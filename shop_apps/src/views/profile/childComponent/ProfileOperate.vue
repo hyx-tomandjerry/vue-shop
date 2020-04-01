@@ -35,20 +35,12 @@
                             title:'退出公司',
                             message:'您确定要退出该公司?'
                         }).then(()=>{
-                            let options={
-                                shop:0,
-                                users:this.$utils.getLocalItem('userInfo').id,
-                                permanent:1
-                            }
-                            common_delete(options).then(res=>{
-                                if(res.data===0){
-                                    this.$toast({message:'您已成功退出公司!'});
-                                    this.$utils.removeStorage('userInfo');
-                                    this.$utils.removeStorage('account');
-                                    this.$utils.removeStorage('pwd');
-                                    this.$utils.removeStorage('remeber');
-                                }
-                            })
+
+                            common_delete('0',this.$utils.getLocalItem('userInfo').id,1);
+                            this.$utils.removeStorage('userInfo');
+                            this.$utils.removeStorage('account');
+                            this.$utils.removeStorage('pwd');
+                            this.$utils.removeStorage('remeber');
                         }).catch(()=>{
 
                         })
