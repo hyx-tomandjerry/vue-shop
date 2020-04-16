@@ -1,7 +1,7 @@
 import {ajax} from "./request";
 import config from '../common/config'
 import {Toast} from "vant";
-import utils from '../common/js/utils'
+
 
 //登录
 export function account_login(user,token){

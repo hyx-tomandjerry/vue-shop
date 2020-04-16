@@ -55,7 +55,6 @@
         methods:{
             tabCurHandle(index){
                 this.tabCur = index;
-                console.log(this.tabCur)
                 switch (index) {
                     case 1:
                         this.getShopMember();

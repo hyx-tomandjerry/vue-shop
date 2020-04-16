@@ -46,6 +46,7 @@ export function common_token(){
 
 //从公司或者门店删除店员
 export function common_delete(shop,users,permanent){
+    console.log('49',shop,users,permanent)
     console.log(shop);
     ajax('RemoveSalesman',{shop,users,permanent}).then(res=>{
         console.log(res)

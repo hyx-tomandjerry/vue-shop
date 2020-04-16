@@ -56,7 +56,26 @@ const routes=[
     //设备
     {path:'/shop/device/bind/:shop/:type',component:()=>import('views/single-content/shop-center/shop-container/device-center/bind-device/BindDevice')},//绑定设备
     {path:'/shop/device/camera/:seq/:shop',component:()=>import('views/single-content/shop-center/shop-container/device-center/camera-info/CameraInfo')},//摄像头信息
-    // import '../views/single-content/shop-center/shop-container/device-center/camera-info/CameraInfo'
+
+    //绩效
+    {path:'/sale', component:()=>import('views/single-content/sale-content/sale-index/SaleIndex')},
+    {path:'/sale/resolve/:shop',component:()=>import('views/single-content/sale-content/sale-resolve/SaleResolve')},
+
+    //任务管理
+    { path:'/task',
+      component:()=>import('views/single-content/task-center/task-list/TaskList'),
+      name:'TaskList',
+      children:[
+          {
+              path:'/detail/:id',name:'TaskDetail',component:()=>import('views/single-content/task-center/task-list/TaskList')
+          }
+      ]
+    },
+    // import '../views/single-content/work-apply/work-apply-list/WorkApplyList'
+
+    //工作申请
+    {path:'/apply', name:'Apply', component:()=>import('views/single-content/work-apply/work-apply-index/WorkApplyIndex')},
+    {path:'/apply/list/:type',name:'ApplyList',component:()=>import('views/single-content/work-apply/work-apply-list/WorkApplyList')}
 ];
 
 const router = new VueRouter({

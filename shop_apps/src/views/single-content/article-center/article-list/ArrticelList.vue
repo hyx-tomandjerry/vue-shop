@@ -36,7 +36,7 @@
         },
         computed:{
             getTitle(){
-                return Number(this.$route.params['type'])===this.$config.article.sale?'销售公告':'陈列公告';
+                return Number(this.$route.params['type'])===this.$config.article.sale?'销售公告':'店铺公告';
             }
         },
         mounted() {

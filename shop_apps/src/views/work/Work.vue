@@ -19,11 +19,12 @@
         data(){
             return{
                 tabList:[
-                    {name:'工作回执',path:'',img:require("../../assets/images/work/tab/gongzuohuizhi.png")},
-                    {name:'快递包裹',path:'',img:require("../../assets/images/work/tab/kuaidibaoguo.png")},
+                    {name:'公告回执',path:'',img:require("../../assets/images/work/tab/gongzuohuizhi.png")},
+                    {name:'工作申请',path:'',img:require("../../assets/images/work/tab/apply.png")},
+                    // {name:'快递包裹',path:'',img:require("../../assets/images/work/tab/kuaidibaoguo.png")},
                     {name:'我的报修',path:'',img:require("../../assets/images/work/tab/wodebaoxiu.png")},
                     {name:'任务管理',path:'',img:require("../../assets/images/work/tab/renwuguanli.png")},
-                    {name:'工作申请',path:'',img:require("../../assets/images/work/tab/apply.png")},
+
                 ]
             }
         },
@@ -75,5 +76,6 @@
     }
     .work-list-item-name{
         margin:4px 0;
+        font-size:14px;
     }
 </style>

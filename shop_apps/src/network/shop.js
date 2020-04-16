@@ -161,3 +161,9 @@ export function shop_unbind_camera(id){
         }
     })
 }
+
+//删除店员
+export function shop_delete_client(shop,users,permanent){
+    console.log(shop.users,permanent)
+    // ajax('RemoveSalesman')
+}

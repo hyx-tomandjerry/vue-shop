@@ -21,7 +21,7 @@
 
 <script>
     import {common_delete} from 'network/common.js'
-    import {shop_setManager} from 'network/shop.js'
+    import {shop_setManager,shop_delete_client} from 'network/shop.js'
     export default {
         name: "TopRightPopup",
         props:{
@@ -44,15 +44,13 @@
         },
         methods:{
             delOperate(type){
-                console.log(type);
                 switch (type) {
                     case 'company':
                         this.$dialog.confirm({
                             message:'确定要从公司删除?'
                         }).then(()=>{
                             this.isShow=false;
-                            console.log('你好');
-                            common_delete(this.id,this.clerk.id,1);
+                            common_delete(0,this.clerk.id,1);
                             setTimeout(()=>{
                                 this.$utils.goBack();
                                 this.$emit('chooseItem');
@@ -62,18 +60,38 @@
                         });
                         break;
                     case 'shop':
-                       this.$dialog.confirm({
-                           message:'确定要从门店删除?'
-                       }).then(()=>{
-                           this.isShow=false;
-                           common_delete(this.id,this.clerk.id,'0');
-                           setTimeout(()=>{
-                               this.$utils.goBack();
-                               this.$emit('chooseItem');
-                           },2000);
-                       }).catch(()=>{
-
-                       });
+                        this.isShow=false;
+                        this.$dialog.confirm({
+                            message:'确定要从门店删除?'
+                        }).then(()=>{
+                            console.log('成功');
+                            // this.$emit('chooseItem');
+                            console.log(this.id, this.clerk.id, 0);
+                            shop_delete_client(this.id,this.clerk.id,0)
+                        }).catch(()=>{
+                            console.log('失败');
+                        })
+                        // this.$dialog.confirm({
+                        //     message:'确定要从门店删除?'
+                        // }).then(()=>{
+                        //     this.$emit('chooseItem');
+                        //     common_delete(this.id,this.clerk.id,0);
+                        // }).catch(()=>{
+                        //     console.log('失败')
+                        // })
+                       // this.$dialog.confirm({
+                       //     message:'确定要从门店删除?'
+                       // }).then(()=>{
+                       //      console.log('成功')
+                       //     common_delete(this.id,this.clerk.id,0);
+                       //     setTimeout(()=>{
+                       //         this.isShow=false;
+                       //         this.$utils.goBack();
+                       //         this.$emit('chooseItem');
+                       //     },2000);
+                       // }).catch(()=>{
+                       //
+                       // });
                         break;
                     case 'cancel':
                         break;

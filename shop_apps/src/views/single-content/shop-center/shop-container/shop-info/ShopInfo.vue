@@ -57,12 +57,8 @@
             ...mapState(['shopItem','shopCount']),
         },
         mounted() {
-            if(this.shopCount ===1){
-                this.shopInfo = this.shopItem;
-                console.log(this.shopInfo)
-            }else{
-                this.getShopInfo('11')
-            }
+            console.log('600000')
+            this.getShopInfo('11')
 
         },
         methods:{

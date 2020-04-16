@@ -13,10 +13,13 @@
         data(){
             return{
                 operateList:[
-                    {name:'门店报修',img:require("assets/images/index/operate/index-repair.png"),path:'/shop/repair'},
-                    {name:'快递包裹',img:require("assets/images/index/operate/index-express.png"),path:'/express'},
                     {name:'我的门店',img:require("assets/images/index/operate/index-shop.png"),path:'/shop'},
-                    {name:'销售绩效',img:require("assets/images/index/operate/index-statistics.png"),path:'/sale'},
+                    {name:'门店报修',img:require("assets/images/index/operate/index-repair.png"),path:'/shop/repair'},
+                    {name:'任务管理',img:require("assets/images/index/operate/index_work.png"),path:'/task'},
+                    {name:'工作申请',img:require("assets/images/index/operate/index_apply.png"),path:'/apply'},
+                    // {name:'快递包裹',img:require("assets/images/index/operate/index-express.png"),path:'/express'},
+                    //
+                    // {name:'销售绩效',img:require("assets/images/index/operate/index-statistics.png"),path:'/sale'},
                 ]
             }
         }

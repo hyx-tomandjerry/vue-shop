@@ -68,6 +68,7 @@
                 })
             },
             chooseItem(){
+                console.log('74')
                 this.isShow =false;
             }
         },

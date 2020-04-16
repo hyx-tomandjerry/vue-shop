@@ -9,7 +9,7 @@
         </div>
 
         <!--销售公告-->
-         <index-article-sale :sale="article.sale"/>
+         <!--<index-article-sale :sale="article.sale"/>-->
         <!--陈列公共-->
           <index-article-display :display="article.display"/>
 

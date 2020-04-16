@@ -1,6 +1,6 @@
 <template>
     <div class="index-article-sale bg-white">
-        <van-cell title="陈列公告" is-link :to="`/article/${$config.article.display}`" :border="false" />
+        <van-cell title="店铺公告" is-link :to="`/article/${$config.article.display}`" :border="false" />
         <div class="display-content">
             <article-display-item v-for="(item,index) in display" :key="index" :item="item" :index="index" v-if="display.length"/>
             <index-article-empty v-else/>
